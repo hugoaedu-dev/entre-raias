@@ -6,12 +6,10 @@
     <title>Entre Raias</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* ===== BASE ===== */
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Roboto', sans-serif; }
         body { background: #E0F7FA; color: #000; line-height: 1.6; scroll-behavior: smooth; }
         a { text-decoration: none; color: inherit; }
 
-        /* ===== CORES ===== */
         :root {
             --azul: #00BCD4;
             --vermelho: #F44336;
@@ -19,7 +17,6 @@
             --preto: #000000;
         }
 
-        /* ===== NAV ===== */
         nav {
             position: fixed;
             top:0;
@@ -34,7 +31,6 @@
         nav a { margin: 0 15px; font-weight: bold; transition: color 0.3s; }
         nav a:hover { color: var(--vermelho); }
 
-        /* ===== HEADER ===== */
         header {
             position: relative;
             height: 60vh;
@@ -79,28 +75,6 @@
         }
         header .btn:hover { background: #d32f2f; }
 
-        /* ===== ONDA ANIMADA ===== */
-        .wave {
-            position: absolute;
-            bottom:0;
-            width: 200%;
-            height: 100px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 100%;
-            animation: wave 6s infinite linear;
-            z-index: 2;
-        }
-        .wave:nth-child(2) {
-            bottom:10px;
-            animation-delay: -3s;
-            opacity: 0.5;
-        }
-        @keyframes wave {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* ===== SEÇÕES ===== */
         section { padding: 60px 20px; text-align: center; position: relative; }
         .section-title { font-size: 2rem; margin-bottom: 40px; color: var(--azul); }
         .fade-in { opacity: 0; transform: translateY(30px); animation: fadeInUp 1s forwards; }
@@ -108,36 +82,30 @@
         .fade-delay-2 { animation-delay: 0.6s; }
         .fade-delay-3 { animation-delay: 0.9s; }
 
-        /* ===== SOBRE ===== */
         .about p { max-width: 700px; margin: auto; font-size: 1.1rem; }
 
-        /* ===== VÍDEOS ===== */
         .videos iframe { width: 100%; max-width: 350px; height: 200px; margin: 15px; border-radius: 10px; }
         .videos-grid { display: flex; flex-wrap: wrap; justify-content: center; }
 
-        /* ===== CONTATO ===== */
         .contact input, .contact textarea { width: 100%; max-width: 400px; margin: 10px 0; padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
         .contact button { background: var(--azul); color: var(--branco); padding: 10px 20px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; transition: background 0.3s; }
         .contact button:hover { background: #0097a7; }
 
-        /* ===== PROFESSORES ===== */
         .team { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-        .teacher-card { background: var(--branco); padding: 15px; border-radius: 10px; width: 200px; box-shadow: 0 3px 8px rgba(0,0,0,0.2); }
+        .teacher-card { background: var(--branco); padding: 15px; border-radius: 10px; width: 300px; box-shadow: 0 3px 8px rgba(0,0,0,0.2); text-align:left; }
         .teacher-card img { width: 100%; border-radius: 10px; margin-bottom: 10px; }
         .teacher-card h4 { color: var(--azul); margin-bottom: 5px; }
-        .teacher-card p { font-size: 0.9rem; color: #555; }
+        .teacher-card p { font-size: 0.9rem; color: #555; margin-bottom: 5px; }
 
-        /* ===== ANIMAÇÕES ===== */
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes fadeInUp { to { opacity:1; transform: translateY(0); } }
 
-        /* ===== RESPONSIVO ===== */
         @media(max-width:768px){
             nav { padding: 10px 20px; flex-direction: column; }
             .videos iframe { max-width: 90%; height: 180px; }
             .team { flex-direction: column; align-items: center; }
+            .teacher-card { width: 90%; }
         }
-
     </style>
 </head>
 <body>
@@ -159,8 +127,6 @@
             <p>Educação, técnica e paixão pela natação.</p>
             <a href="#videos" class="btn">Ver Conteúdos</a>
         </div>
-        <div class="wave"></div>
-        <div class="wave"></div>
     </header>
 
     <section id="sobre" class="about fade-in fade-delay-1">
@@ -181,14 +147,31 @@
         <h2 class="section-title">Team Entre Raias</h2>
         <div class="team">
             <div class="teacher-card">
-                <img src="https://via.placeholder.com/200x200.png?text=Professor+1" alt="Professor 1">
-                <h4>Professor 1</h4>
-                <p>Especialidade: Nado Crawl</p>
+                <img src="https://via.placeholder.com/300x300.png?text=Hugo+Mendes+Batista" alt="Hugo Mendes Batista">
+                <h4>Hugo Mendes Batista</h4>
+                <p><strong>Bio:</strong> Graduado em Educação Física pela Anhanguera de Taguatinga e pós-graduando em Natação e Atividades Aquáticas pela UniCV, Hugo atua na natação desde 2014 e é registrado no CREF (DF-012004).</p>
+                <p>Carrega experiência sólida como professor de natação infantil e adulto, passando por instituições como Centro Olímpico e Paraolímpico, Academia Torp e Acqua Live, onde trabalhou com bb3, adaptação, iniciação, aperfeiçoamento e condicionamento.</p>
+                <p>Possui formações complementares em Metodologia Gustavo Borges, natação para bebês, além de curso de brigadista e socorrista, e módulos técnicos específicos.</p>
+                <p>Hugo é apaixonado pela biomecânica dos nados e pelo desenvolvimento técnico dos alunos. No Entre Raias, atua como fundador, professor e criador de conteúdos educativos, unindo prática, segurança aquática e performance.</p>
+                <p><strong>Hobbies:</strong> Natação, atividade física, criação de conteúdo e tudo que envolve evolução pessoal e profissional.</p>
             </div>
+
             <div class="teacher-card">
-                <img src="https://via.placeholder.com/200x200.png?text=Professor+2" alt="Professor 2">
+                <img src="https://via.placeholder.com/300x300.png?text=Professor+2" alt="Professor 2">
                 <h4>Professor 2</h4>
                 <p>Especialidade: Nado Peito</p>
+            </div>
+
+            <div class="teacher-card">
+                <img src="https://via.placeholder.com/300x300.png?text=Professor+3" alt="Professor 3">
+                <h4>Professor 3</h4>
+                <p>Especialidade: Nado Costas</p>
+            </div>
+
+            <div class="teacher-card">
+                <img src="https://via.placeholder.com/300x300.png?text=Professor+4" alt="Professor 4">
+                <h4>Professor 4</h4>
+                <p>Especialidade: Nado Borboleta</p>
             </div>
         </div>
     </section>
