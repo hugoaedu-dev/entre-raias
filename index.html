@@ -3,32 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entre Raias - Natação para Todos</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Entre Raias</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== BASE ===== */
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Roboto', sans-serif; }
+        body { background: #E0F7FA; color: #000; line-height: 1.6; scroll-behavior: smooth; }
+        a { text-decoration: none; color: inherit; }
+
+        /* ===== CORES ===== */
+        :root {
+            --azul: #00BCD4;
+            --vermelho: #F44336;
+            --branco: #FFFFFF;
+            --preto: #000000;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1950&q=80') no-repeat center/cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--branco);
+            position: relative;
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            top:0; left:0; right:0; bottom:0;
+            background: rgba(0,0,0,0.3);
+        }
+        header .content {
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        header img { width: 150px; margin-bottom: 20px; }
+
+        header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        header p { font-size: 1.2rem; }
+
+        header .btn {
+            background: var(--vermelho);
+            color: var(--branco);
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+        header .btn:hover { background: #d32f2f; }
+
+        /* ===== NAV ===== */
+        nav {
+            position: fixed;
+            top:0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 50px;
+            background: rgba(0,0,0,0.5);
+            color: var(--branco);
+            z-index: 10;
+        }
+        nav a { margin: 0 15px; font-weight: bold; transition: color 0.3s; }
+        nav a:hover { color: var(--vermelho); }
+
+        /* ===== SEÇÕES ===== */
+        section { padding: 60px 20px; text-align: center; }
+        .section-title { font-size: 2rem; margin-bottom: 40px; color: var(--azul); }
+        .fade-in { opacity: 0; transform: translateY(30px); animation: fadeInUp 1s forwards; }
+        .fade-delay-1 { animation-delay: 0.3s; }
+        .fade-delay-2 { animation-delay: 0.6s; }
+        .fade-delay-3 { animation-delay: 0.9s; }
+
+        /* ===== SOBRE ===== */
+        .about p { max-width: 700px; margin: auto; font-size: 1.1rem; }
+
+        /* ===== VÍDEOS ===== */
+        .videos iframe { width: 100%; max-width: 350px; height: 200px; margin: 15px; border-radius: 10px; }
+        .videos-grid { display: flex; flex-wrap: wrap; justify-content: center; }
+
+        /* ===== CONTATO ===== */
+        .contact input, .contact textarea { width: 100%; max-width: 400px; margin: 10px 0; padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
+        .contact button { background: var(--azul); color: var(--branco); padding: 10px 20px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; transition: background 0.3s; }
+        .contact button:hover { background: #0097a7; }
+
+        /* ===== PROFESSORES ===== */
+        .team { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .teacher-card { background: var(--branco); padding: 15px; border-radius: 10px; width: 200px; box-shadow: 0 3px 8px rgba(0,0,0,0.2); }
+        .teacher-card img { width: 100%; border-radius: 10px; margin-bottom: 10px; }
+        .teacher-card h4 { color: var(--azul); margin-bottom: 5px; }
+        .teacher-card p { font-size: 0.9rem; color: #555; }
+
+        /* ===== ANIMAÇÕES ===== */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeInUp { to { opacity:1; transform: translateY(0); } }
+
+        /* ===== RESPONSIVO ===== */
+        @media(max-width:768px){
+            nav { padding: 10px 20px; flex-direction: column; }
+            .videos iframe { max-width: 90%; height: 180px; }
+            .team { flex-direction: column; align-items: center; }
+        }
+
+    </style>
 </head>
 <body>
+    <nav>
+        <div class="logo">Entre Raias</div>
+        <div class="menu">
+            <a href="#sobre">Sobre</a>
+            <a href="#videos">Vídeos</a>
+            <a href="#contato">Contato</a>
+        </div>
+    </nav>
 
-    <!-- HEADER -->
-    <header class="header">
-        <img src="images/logo-entre-raias.png" class="logo" alt="Logo Entre Raias">
-        <nav>
-            <ul>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#videos">Vídeos</a></li>
-                <li><a href="#professores">Equipe</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
+    <header>
+        <div class="content">
+            <img src="https://via.placeholder.com/150x80.png?text=Logo+Entre+Raias" alt="Logo Entre Raias">
+            <h1>Entre Raias</h1>
+            <p>Educação, técnica e paixão pela natação.</p>
+            <a href="#videos" class="btn">Ver Conteúdos</a>
+        </div>
     </header>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-text">
-            <h1>Entre Raias</h1>
-            <p>Técnica, performance e educação aquática.</p>
-            <a href="#videos" class="btn-red">Ver Conteúdos</a>
-        </div>
-        <div class="hero-img">
-            <!-- Personagem será inserido aqui -->
+    <section id="sobre" class="about fade-in fade-delay-1">
+        <h2 class="section-title">Sobre o Projeto</h2>
+        <p>O Entre Raias é um projeto de quatro professores apaixonados por natação, compartilhando dicas, técnica, biomecânica e muito conteúdo para quem quer nadar melhor.</p>
+    </section>
+
+    <section id="videos" class="videos fade-in fade-delay-2">
+        <h2 class="section-title">Nossos Vídeos</h2>
+        <div class="videos-grid">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo 1" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo 2" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo 3" allowfullscreen></iframe>
         </div>
     </section>
+
+    <section id="professores" class="team fade-in fade-delay-3">
+        <h2 class="section-title">Team Entre Raias</h2>
+        <div class="team">
+            <div class="teacher-card">
+                <img src="https://via.placeholder.com/200x200.png?text=Professor+1" alt="Professor 1">
+                <h4>Professor 1</h4>
+                <p>Especialidade: Nado Crawl</p>
+            </div>
+            <div class="teacher-card">
+                <img src="https://via.placeholder.com/200x200.png?text=Professor+2" alt="Professor 2">
+                <h4>Professor 2</h4>
+                <p>Especialidade: Nado Peito</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contact fade-in fade-delay-3">
+        <h2 class="section-title">Contato</h2>
+        <form>
+            <input type="text" placeholder="Nome" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Mensagem" rows="5" required></textarea>
+            <br>
+            <button type="submit">Enviar</button>
+        </form>
+        <p style="margin-top:20px;">Siga nas redes sociais: @entreraiasoficial</p>
+    </section>
+
+    <footer style="background:#00BCD4; color:#fff; text-align:center; padding:20px;">
+        Entre Raias © 2025 — Todos os direitos reservados.
+    </footer>
+</body>
+</html>
