@@ -19,9 +19,24 @@
             --preto: #000000;
         }
 
+        /* ===== NAV ===== */
+        nav {
+            position: fixed;
+            top:0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 50px;
+            background: rgba(0,0,0,0.5);
+            color: var(--branco);
+            z-index: 10;
+        }
+        nav a { margin: 0 15px; font-weight: bold; transition: color 0.3s; }
+        nav a:hover { color: var(--vermelho); }
+
         /* ===== HEADER ===== */
         header {
-            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1950&q=80') no-repeat center/cover;
+            position: relative;
             height: 60vh;
             display: flex;
             flex-direction: column;
@@ -29,17 +44,23 @@
             align-items: center;
             text-align: center;
             color: var(--branco);
-            position: relative;
+            overflow: hidden;
         }
-        header::after {
-            content: '';
+        header .header-bg {
             position: absolute;
-            top:0; left:0; right:0; bottom:0;
+            top:0; left:0; width:100%; height:100%;
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1950&q=80') no-repeat center/cover;
+            z-index: 0;
+        }
+        header .overlay {
+            position: absolute;
+            top:0; left:0; width:100%; height:100%;
             background: rgba(0,0,0,0.3);
+            z-index:1;
         }
         header .content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             animation: fadeIn 1.5s ease-in-out;
         }
         header img { width: 150px; margin-bottom: 20px; }
@@ -58,23 +79,29 @@
         }
         header .btn:hover { background: #d32f2f; }
 
-        /* ===== NAV ===== */
-        nav {
-            position: fixed;
-            top:0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 50px;
-            background: rgba(0,0,0,0.5);
-            color: var(--branco);
-            z-index: 10;
+        /* ===== ONDA ANIMADA ===== */
+        .wave {
+            position: absolute;
+            bottom:0;
+            width: 200%;
+            height: 100px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 100%;
+            animation: wave 6s infinite linear;
+            z-index: 2;
         }
-        nav a { margin: 0 15px; font-weight: bold; transition: color 0.3s; }
-        nav a:hover { color: var(--vermelho); }
+        .wave:nth-child(2) {
+            bottom:10px;
+            animation-delay: -3s;
+            opacity: 0.5;
+        }
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
 
         /* ===== SEÇÕES ===== */
-        section { padding: 60px 20px; text-align: center; }
+        section { padding: 60px 20px; text-align: center; position: relative; }
         .section-title { font-size: 2rem; margin-bottom: 40px; color: var(--azul); }
         .fade-in { opacity: 0; transform: translateY(30px); animation: fadeInUp 1s forwards; }
         .fade-delay-1 { animation-delay: 0.3s; }
@@ -124,12 +151,16 @@
     </nav>
 
     <header>
+        <div class="header-bg"></div>
+        <div class="overlay"></div>
         <div class="content">
             <img src="https://via.placeholder.com/150x80.png?text=Logo+Entre+Raias" alt="Logo Entre Raias">
             <h1>Entre Raias</h1>
             <p>Educação, técnica e paixão pela natação.</p>
             <a href="#videos" class="btn">Ver Conteúdos</a>
         </div>
+        <div class="wave"></div>
+        <div class="wave"></div>
     </header>
 
     <section id="sobre" class="about fade-in fade-delay-1">
@@ -140,9 +171,9 @@
     <section id="videos" class="videos fade-in fade-delay-2">
         <h2 class="section-title">Nossos Vídeos</h2>
         <div class="videos-grid">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo 1" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo 2" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo 3" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/_RdhFrogyjg" title="Vídeo 1" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/x6NytPgRG5c" title="Vídeo 2" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/oKJUnTfMH78" title="Vídeo 3" allowfullscreen></iframe>
         </div>
     </section>
 
@@ -174,7 +205,7 @@
         <p style="margin-top:20px;">Siga nas redes sociais: @entreraiasoficial</p>
     </section>
 
-    <footer style="background:#00BCD4; color:#fff; text-align:center; padding:20px;">
+    <footer style="background:var(--azul); color:#fff; text-align:center; padding:20px;">
         Entre Raias © 2025 — Todos os direitos reservados.
     </footer>
 </body>
